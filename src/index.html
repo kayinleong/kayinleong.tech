@@ -1,13 +1,36 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>KayinleongGithubIo</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Kayin Leong Portfolio</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  </head>
+
+  <body>
+    <app-root></app-root>
+  </body>
+
+  <script>
+    window.scroll({
+      top: 1000,
+      left: 0,
+      behavior: 'smooth'
+    });
+
+    // Scroll certain amounts from current position
+    window.scrollBy({
+      top: 250, // could be negative value
+      left: 0,
+      behavior: 'smooth'
+    });
+
+    // Scroll to a certain element
+    document.getElementById('el').scrollIntoView({
+      behavior: 'smooth'
+    })
+  </script>
+
 </html>
