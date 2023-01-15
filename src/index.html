@@ -13,6 +13,7 @@
     <app-root></app-root>
   </body>
 
+  <!-- Smooth Scrolling -->
   <script>
     window.scroll({
       top: 1000,
@@ -20,17 +21,25 @@
       behavior: 'smooth'
     });
 
-    // Scroll certain amounts from current position
     window.scrollBy({
-      top: 250, // could be negative value
+      top: 250,
       left: 0,
       behavior: 'smooth'
     });
 
-    // Scroll to a certain element
     document.getElementById('el').scrollIntoView({
       behavior: 'smooth'
     })
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SSPB74ZTX4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-SSPB74ZTX4');
   </script>
 
 </html>
