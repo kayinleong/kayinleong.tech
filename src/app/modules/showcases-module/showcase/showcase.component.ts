@@ -10,6 +10,7 @@ export class ShowcasesComponent implements OnInit {
   @Input() organisationName!: string;
   @Input() organisationSubName!: string;
   @Input() organisationEventName!: string;
+  @Input() notice: string | null = null;
   @Input() logoFileName!: string;
   @Input() logoAltName!: string;
   @Input() showcaseUrl!: string;

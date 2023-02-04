@@ -1,42 +1,83 @@
-<!-- Showcases -->
-<section id="showcases" class="flex flex-col gap-5 lg:px-40">
-  <h2 class="text-3xl font-semibold sm:text-5xl lg:text-6xl">Showcases</h2>
-
-  <div class="flex flex-col">
-    <div class="flex flex-row items-center gap-2">
-      <img
-        [src]="'assets/images/' + logoFileName"
-        [alt]="logoAltName"
-        class="h-full max-w-[50px]"
-        fetchprority="low"
-        loading="lazy"
-      />
-      <h3 class="flex flex-col">
-        <span class="text-2xl font-medium">
-          {{ organisationName }} - {{ organisationEventName }}
-        </span>
-        <span class="text-sm">{{ organisationSubName }}</span>
-      </h3>
-    </div>
-
-    <iframe
-      *ngIf="show; else noshow"
-      [src]="sanitize(showcaseUrl)"
-      height="500"
-      class="mt-4 rounded-md"
+<div class="flex flex-col">
+  <div class="flex flex-row items-center gap-2">
+    <img
+      [src]="'assets/images/' + logoFileName"
+      [alt]="logoAltName"
+      class="h-full max-w-[50px]"
+      fetchprority="low"
       loading="lazy"
-    ></iframe>
-
-    <ng-template #noshow>
-      <div class="mt-10">
-        <button
-          (click)="showButtonOnClick()"
-          type="button"
-          class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200"
+    />
+    <h3 class="flex flex-col">
+      <span class="text-2xl font-medium">
+        {{ organisationName }}
+      </span>
+      <a
+        [href]="sanitize(showcaseUrl)"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex flex-row items-center gap-2 text-xl"
+      >
+        {{ organisationEventName }}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-box-arrow-up-right inline-block"
+          viewBox="0 0 16 16"
         >
-          Show !
-        </button>
-      </div>
-    </ng-template>
+          <path
+            fill-rule="evenodd"
+            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
+          />
+          <path
+            fill-rule="evenodd"
+            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"
+          />
+        </svg>
+      </a>
+      <span class="text-sm">{{ organisationSubName }}</span>
+      <span
+        class="flex flex-row items-center gap-2 text-sm text-yellow-400"
+        *ngIf="notice !== null"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-exclamation-octagon inline-block"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"
+          />
+          <path
+            d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+          />
+        </svg>
+        {{ notice }}
+      </span>
+    </h3>
   </div>
-</section>
+
+  <iframe
+    *ngIf="show; else noshow"
+    [src]="sanitize(showcaseUrl)"
+    height="500"
+    class="mt-4 rounded-md"
+    loading="lazy"
+  ></iframe>
+
+  <ng-template #noshow>
+    <div class="mt-5">
+      <button
+        (click)="showButtonOnClick()"
+        type="button"
+        class="mr-2 mb-2 rounded-lg border border-gray-200 bg-white py-2.5 px-5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-200"
+      >
+        Show !
+      </button>
+    </div>
+  </ng-template>
+</div>
